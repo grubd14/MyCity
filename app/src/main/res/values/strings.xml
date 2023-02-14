@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">My City</string>
+    <string name="text_1">hello</string>
+    <string name="text_2">hello hi</string>
+    <string name="text_3">hello hiret</string>
+    <string name="text_4">hello hiiii</string>
+
 </resources>
