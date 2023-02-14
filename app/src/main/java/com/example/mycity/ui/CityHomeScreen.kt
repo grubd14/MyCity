@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
@@ -56,7 +55,10 @@ fun CityHomeScreen() {
                 modifier = Modifier
                     .width(4.dp)
             )
-            Column() {
+            Column(
+                modifier = Modifier
+                    .padding(start = 10.dp)
+            ) {
                 Text(
                     text = "Hello",
                     style = MaterialTheme.typography.headlineLarge,
@@ -64,7 +66,7 @@ fun CityHomeScreen() {
                 )
                 Text(
                     text = "lets see what happens",
-                    style = MaterialTheme.typography.bodySmall
+                    style = MaterialTheme.typography.bodyMedium
                 )
             }
             }
