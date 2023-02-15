@@ -2,6 +2,7 @@ package com.example.mycity.ui
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -25,62 +26,67 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import com.example.mycity.data.RecommendedPlaces
 import com.example.mycity.data.recommendationList
 
 @Composable
 fun RecommendationScreen(
     recommendationList: List<RecommendedPlaces>,
-    navController: NavController,
+    navController: NavHostController,
     modifier: Modifier = Modifier
 ) {
-
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(top = 56.dp)
+    ) {
     LazyColumn(
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
         modifier = Modifier
 
     ) {
         items(recommendationList.size) { index ->
-    Card(
-        elevation = CardDefaults.cardElevation(10.dp),
-        modifier = Modifier
-            .padding(10.dp)
-            .height(180.dp)
-            .wrapContentHeight(align = Alignment.Bottom)
-
-    ) {
-        Box(
-            modifier = Modifier
-        ) {
-            Image(
-                painter = painterResource(recommendationList[index].image),
-                contentDescription = null,
-                contentScale = ContentScale.Crop,
+            Card(
+                elevation = CardDefaults.cardElevation(10.dp),
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .clip(shape = RoundedCornerShape(8.dp))
-                    .padding(4.dp)
+                    .padding(10.dp)
+                    .height(180.dp)
+                    .wrapContentHeight(align = Alignment.Bottom)
 
-            )
-            Text(
-                text = stringResource(recommendationList[index].text),
-                color = Color.White,
-                fontWeight = FontWeight(400),
-                fontSize = 24.sp,
-                textAlign = TextAlign.Center,
-                modifier = Modifier
-                    .padding(start = 16.dp, bottom = 14.dp)
-                    .align(Alignment.BottomStart)
-            )
-        }
+            ) {
+                Box(
+                    modifier = Modifier
+                ) {
+                    Image(
+                        painter = painterResource(recommendationList[index].image),
+                        contentDescription = null,
+                        contentScale = ContentScale.Crop,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clip(shape = RoundedCornerShape(8.dp))
+                            .padding(4.dp)
 
+                    )
+                    Text(
+                        text = stringResource(recommendationList[index].text),
+                        color = Color.White,
+                        fontWeight = FontWeight(400),
+                        fontSize = 24.sp,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier
+                            .padding(start = 16.dp, bottom = 14.dp)
+                            .align(Alignment.BottomStart)
+                    )
+                }
+
+            }
         }
     }
 
     }
 }
 
-@Preview(showBackground = false)
+@Preview(showSystemUi = true)
 @Composable
-fun CityAppRecommendationScreen() {
-}
+fun CityAppRecommendationScreen() {}

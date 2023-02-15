@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -27,15 +28,21 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import com.example.mycity.CityHomeScreen
 import com.example.mycity.data.Categories
 import com.example.mycity.data.categoriesList
 
 @Composable
 fun CityCategoryScreen(
-    navController: NavController,
+    navController: NavHostController,
     categoriesList: List<Categories>,
     modifier: Modifier = Modifier
+    ) {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(top = 56.dp)
     ) {
     LazyColumn(
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
@@ -45,7 +52,7 @@ fun CityCategoryScreen(
         Card(
             modifier = Modifier
                 .padding(8.dp)
-                .clickable(onClick = { navController.navigate(CityHomeScreen.Recommended.name)}),
+                .clickable(onClick = { navController.navigate(CityHomeScreen.Recommended.name) }),
             elevation = CardDefaults.cardElevation(4.dp)
         ) {
             Row(
@@ -66,7 +73,7 @@ fun CityCategoryScreen(
                             contentDescription = null,
                             contentScale = ContentScale.Crop,
 
-                        )
+                            )
                     }
                 }
                 Spacer(
@@ -87,14 +94,18 @@ fun CityCategoryScreen(
                         style = MaterialTheme.typography.bodyMedium
                     )
                 }
-                }
+            }
+        }
             }
         }
 
     }
 }
-
-@Preview(showBackground = false)
+/*
+@Preview(showBackground = true)
 @Composable
 fun CityAppHomeScreen() {
+    CityCategoryScreen(navController = NavController, categoriesList = categoriesList)
 }
+
+ */

@@ -2,15 +2,20 @@ package com.example.mycity
 
 import android.annotation.SuppressLint
 import androidx.annotation.StringRes
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -31,11 +36,17 @@ fun CityAppBar(
     currentScreen: CityHomeScreen,
     canNavigateBack: Boolean,
     modifier: Modifier = Modifier
+) { Box(
+    modifier = modifier
+        .fillMaxWidth()
+        .size(56.dp),
+    contentAlignment = Alignment.Center
 ) {
     TopAppBar(
         title = { Text(stringResource(currentScreen.title)) },
-        modifier = modifier
+        modifier = Modifier
     )
+}
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
