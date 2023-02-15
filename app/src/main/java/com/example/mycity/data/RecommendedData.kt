@@ -7,7 +7,7 @@ data class RecommendedPlaces(
     val text: Int
 )
 
-val categoriesList = listOf(
+val recommendationList = listOf(
     RecommendedPlaces(R.drawable.category_test, R.string.text_1),
     RecommendedPlaces(R.drawable.category_test1, R.string.text_2),
     RecommendedPlaces(R.drawable.category_test2, R.string.text_3),

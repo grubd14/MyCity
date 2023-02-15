@@ -1,8 +1,19 @@
 <resources>
     <string name="app_name">My City</string>
+    <string name="recommendation_screen">Recommendations</string>
+    <string name="details"> Details</string>
     <string name="text_1">hello</string>
     <string name="text_2">hello hi</string>
     <string name="text_3">hello hiret</string>
     <string name="text_4">hello hiiii</string>
-
+    <string name="headline_1">Coffee Shop</string>
+    <string name="headline_2">Restaurant</string>
+    <string name="headline_3">Kid Friendly Place</string>
+    <string name="headline_4">Parks</string>
+    <string name="headline_5">Shopping centers</string>
+    <string name="body_1">hdd dhjdhd hdh hdd </string>
+    <string name="body_2">jpt jpt blah blah</string>
+    <string name="body_3">blha blha blab blha</string>
+    <string name="body_4">bruh bruh bruh blah </string>
+    <string name="body_5">bruh bro bruh</string>
 </resources>
