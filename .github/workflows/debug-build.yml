@@ -1,0 +1,45 @@
+name: Build and Release
+
+on:
+ push:
+   branches:
+     - main
+   paths-ignore:
+     - '*.md'
+permissions: write-all
+
+jobs:
+ apk:
+   name: Generate APK
+   runs-on: ubuntu-latest
+   steps:
+     - name: Checkout
+       uses: actions/checkout@v3
+     - name: Setup JDK
+       uses: actions/setup-java@v3
+       with:
+         distribution: temurin
+         java-version: "17"
+     - name: Set execution flag for gradlew
+       run: chmod +x gradlew
+     - name: Build APK
+       run: bash ./gradlew assembleDebug
+     - name: Upload APK
+       uses: actions/upload-artifact@v3
+       with:
+         name: apk
+         path: app/build/outputs/apk/debug/app-debug.apk
+
+     - name: Download APK from build
+       uses: actions/download-artifact@v3
+       with:
+         name: apk
+     - name: Create debug release
+       uses: "marvinpinto/action-automatic-releases@latest"
+       with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "debug"
+        prerelease: false
+        title: "Debug-build"
+        files: |
+          app/build/outputs/apk/debug/app-debug.apk
